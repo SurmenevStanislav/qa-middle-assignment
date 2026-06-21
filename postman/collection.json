@@ -408,6 +408,32 @@
 					"name": "Ping - HealthCheck",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -451,6 +477,32 @@
 				{
 					"name": "CreateBooking",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -668,6 +720,32 @@
 					"name": "GetBookingIds - Firstname filter",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -739,6 +817,32 @@
 				{
 					"name": "GetBookingIds - Lastname filter",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -930,6 +1034,32 @@
 					"name": "GetBooking - Very big ID",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -980,6 +1110,32 @@
 				{
 					"name": "GetBooking - ID is zero",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1032,6 +1188,32 @@
 					"name": "GetBooking - ID is string",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1083,6 +1265,32 @@
 					"name": "GetBooking - ID is negative",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1133,6 +1341,32 @@
 				{
 					"name": "CreateBooking - Missing firstname",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1191,6 +1425,32 @@
 				{
 					"name": "CreateBooking - Invalid totalprice BUG!",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1251,6 +1511,32 @@
 				{
 					"name": "CreateBooking - Past checkin date BUG!",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1315,6 +1601,32 @@
 				{
 					"name": "CreateBooking - Checkout before checkin BUG!",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1391,6 +1703,32 @@
 					"name": "CreateBooking - Invalid date format BUG!",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1450,6 +1788,24 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}",
+									"",
 									"// Pre-request: ensure booking_id is set",
 									"// If empty, create a booking and store its id",
 									"if (!pm.environment.get(\"booking_id\")) {",
@@ -1628,6 +1984,32 @@
 					"name": "UpdateBooking - Non-existing ID BUG!",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate and store the token so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1694,6 +2076,24 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}",
+									"",
 									"// Pre-request: ensure booking_id is set",
 									"// If empty, create a booking and store its id",
 									"if (!pm.environment.get(\"booking_id\")) {",
@@ -1872,6 +2272,32 @@
 					"name": "PartialUpdateBooking - Non-existing ID BUG!",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate and store the token so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1978,6 +2404,32 @@
 					"name": "DeleteBooking - Non-existing ID BUG!",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate and store the token so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -2030,6 +2482,24 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
+									"// Pre-request: ensure token is set",
+									"// If empty, authenticate so the test works in standalone Postman runs",
+									"if (!pm.environment.get(\"token\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/auth\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({ username: \"admin\", password: \"password123\" })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"token\", res.json().token);",
+									"        }",
+									"    });",
+									"}",
+									"",
 									"// Pre-request: ensure booking_id is set",
 									"// If empty, create a booking and store its id",
 									"if (!pm.environment.get(\"booking_id\")) {",
