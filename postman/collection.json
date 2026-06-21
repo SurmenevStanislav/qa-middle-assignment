@@ -1625,23 +1625,22 @@
 					"response": []
 				},
 				{
-					"name": "UpdateBooking - Non-existing ID",
+					"name": "UpdateBooking - Non-existing ID BUG!",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 405 or 404\", function () {",
-									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"pm.test(\"BUG: API returns 405 instead of 404 for non-existing ID\", function () {",
+									"    pm.response.to.have.status(405);",
 									"});",
 									"",
 									"pm.test(\"Response time is less than 2000ms\", function () {",
 									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 									"});",
 									"",
-									"pm.test(\"Response body is not empty\", function () {",
-									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
-									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"pm.test(\"BUG: Response body indicates Method Not Allowed\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1651,17 +1650,15 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PUT",
 						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
@@ -1872,23 +1869,22 @@
 					"response": []
 				},
 				{
-					"name": "PartialUpdateBooking - Non-existing ID",
+					"name": "PartialUpdateBooking - Non-existing ID BUG!",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 405 or 404\", function () {",
-									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"pm.test(\"BUG: API returns 405 instead of 404 for non-existing ID\", function () {",
+									"    pm.response.to.have.status(405);",
 									"});",
 									"",
 									"pm.test(\"Response time is less than 2000ms\", function () {",
 									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 									"});",
 									"",
-									"pm.test(\"Response body is not empty\", function () {",
-									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
-									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"pm.test(\"BUG: Response body indicates Method Not Allowed\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1898,17 +1894,15 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PATCH",
 						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
@@ -1981,23 +1975,22 @@
 					"response": []
 				},
 				{
-					"name": "DeleteBooking - Non-existing ID",
+					"name": "DeleteBooking - Non-existing ID BUG!",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 405 or 404\", function () {",
-									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"pm.test(\"BUG: API returns 405 instead of 404 for non-existing ID\", function () {",
+									"    pm.response.to.have.status(405);",
 									"});",
 									"",
 									"pm.test(\"Response time is less than 2000ms\", function () {",
 									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
 									"});",
 									"",
-									"pm.test(\"Response body is not empty\", function () {",
-									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
-									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"pm.test(\"BUG: Response body indicates Method Not Allowed\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");",
 									"});"
 								],
 								"type": "text/javascript",
@@ -2007,17 +2000,16 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{base_url}}/booking/99999999",
 							"host": [
