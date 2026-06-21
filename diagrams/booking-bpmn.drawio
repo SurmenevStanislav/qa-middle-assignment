@@ -1,0 +1,155 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="YJUN19_1UIM1AYnP5VM7">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-7" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Start" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-8" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="User selects room and dates" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-9" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System checks availability" vertex="1">
+          <mxGeometry height="60" width="120" x="374" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-14" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="o7FfLRDm3ApaJzqko-DE-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="190" />
+              <mxPoint x="660" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-16" connectable="0" parent="o7FfLRDm3ApaJzqko-DE-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="NO" vertex="1">
+          <mxGeometry relative="1" x="0.6308" y="-3" as="geometry">
+            <mxPoint x="-7" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-18" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Ysx5OiaLMrugdcaRDPRY-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="190" />
+              <mxPoint x="660" y="20" />
+            </Array>
+            <mxPoint x="700" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-20" connectable="0" parent="o7FfLRDm3ApaJzqko-DE-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="YES" vertex="1">
+          <mxGeometry relative="1" x="0.5" y="-1" as="geometry">
+            <mxPoint x="29" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Room available?" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-24" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Show room unavailable message" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-22" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System creates booking" vertex="1">
+          <mxGeometry height="60" width="120" x="930" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-26" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="o7FfLRDm3ApaJzqko-DE-25" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System sends confirmation email" vertex="1">
+          <mxGeometry height="60" width="120" x="1070" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="User selects another room or dates" vertex="1">
+          <mxGeometry height="60" width="120" x="870" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-10" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ysx5OiaLMrugdcaRDPRY-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="End: Booking created" vertex="1">
+          <mxGeometry height="60" width="129" x="1221" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-29" edge="1" parent="1" source="o7FfLRDm3ApaJzqko-DE-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.433;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;" target="o7FfLRDm3ApaJzqko-DE-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="290" />
+              <mxPoint x="426" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o7FfLRDm3ApaJzqko-DE-30" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Booking creation and cancellation process&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="410" x="660" y="-160" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-2" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="o7FfLRDm3ApaJzqko-DE-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="20" />
+              <mxPoint x="880" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-3" connectable="0" parent="Ysx5OiaLMrugdcaRDPRY-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="YES" vertex="1">
+          <mxGeometry relative="1" x="0.0567" as="geometry">
+            <mxPoint x="20" y="28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-5" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Ysx5OiaLMrugdcaRDPRY-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="20" />
+              <mxPoint x="880" y="-50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-6" connectable="0" parent="Ysx5OiaLMrugdcaRDPRY-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="NO" vertex="1">
+          <mxGeometry relative="1" x="-0.284" y="2" as="geometry">
+            <mxPoint x="20" y="-44" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Payment successful?" vertex="1">
+          <mxGeometry height="60" width="133" x="720" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-8" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ysx5OiaLMrugdcaRDPRY-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Show payment failed message" vertex="1">
+          <mxGeometry height="60" width="120" x="930" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="End: Booking not created" vertex="1">
+          <mxGeometry height="60" width="120" x="1070" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-15" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ysx5OiaLMrugdcaRDPRY-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="User cancels booking" vertex="1">
+          <mxGeometry height="60" width="120" x="1380" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-16" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ysx5OiaLMrugdcaRDPRY-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System cancels booking" vertex="1">
+          <mxGeometry height="60" width="120" x="1540" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-17" edge="1" parent="1" source="Ysx5OiaLMrugdcaRDPRY-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Ysx5OiaLMrugdcaRDPRY-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System sends cancellation email" vertex="1">
+          <mxGeometry height="60" width="120" x="1700" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ysx5OiaLMrugdcaRDPRY-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&amp;nbsp;End: Booking cancelled" vertex="1">
+          <mxGeometry height="60" width="120" x="1860" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

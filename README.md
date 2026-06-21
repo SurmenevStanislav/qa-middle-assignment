@@ -12,17 +12,55 @@
 - описаны найденные дефекты и наблюдения API;
 - подготовлены UI тест-кейсы для страниц Form Authentication, File Upload и Dynamic Loading;
 - выполнено ручное тестирование выбранных страниц;
-- оформлены найденные UI дефекты.
+- оформлены найденные UI дефекты;
+- написаны E2E автотесты на Playwright с Page Object Model и data-driven подходом;
+- подготовлены SQL и NoSQL ответы;
+- подготовлены BPMN, Sequence и State Transition диаграммы;
+- настроен CI через GitHub Actions.
 
 ## Структура проекта
 
 ```text
-postman/
-test-cases/
-tests/
-sql/
-nosql/
-diagrams/
+.github/workflows/   — CI конфигурация (GitHub Actions)
+postman/             — Postman коллекция и environment
+test-cases/          — ручные UI тест-кейсы
+tests/e2e/           — E2E автотесты на Playwright
+tests/features/      — Gherkin сценарии
+pages/               — Page Object Model
+fixtures/            — тестовые данные и файлы
+sql/                 — SQL запросы
+nosql/               — ответ по MongoDB
+diagrams/            — BPMN, Sequence Diagram, State Transition
+screenshots/         — скриншоты найденных дефектов
+api-bugs.md          — баг-репорты API
+bugs.md              — баг-репорты UI
+```
+
+## Запуск автотестов
+
+Установка зависимостей:
+
+```bash
+npm install
+npx playwright install --with-deps
+```
+
+Запуск всех тестов:
+
+```bash
+npx playwright test
+```
+
+Или через npm script:
+
+```bash
+npm test
+```
+
+Открыть HTML-отчёт после прогона:
+
+```bash
+npx playwright show-report
 ```
 
 ## Запуск API тестов через Newman
@@ -39,15 +77,17 @@ npm install -g newman
 newman run postman/collection.json -e postman/environment.json
 ```
 
+Или через npm script:
+
+```bash
+npm run test:newman
+```
+
 ## Найденные баги и наблюдения
 
 ### API
 
-Подробное описание находится в файле:
-
-```text
-api-bugs.md
-```
+Подробное описание находится в файле `api-bugs.md`.
 
 Найдены следующие дефекты:
 
@@ -61,11 +101,7 @@ api-bugs.md
 
 ### UI
 
-Подробное описание находится в файле:
-
-```text
-bugs.md
-```
+Подробное описание находится в файле `bugs.md`.
 
 Найденный дефект:
 
@@ -73,11 +109,9 @@ bugs.md
 
 ## Что бы улучшил при наличии дополнительного времени
 
-- расширил покрытие негативных сценариев API;
+- расширил покрытие негативных сценариев API (особенно для PUT/PATCH/DELETE);
 - добавил JSON Schema Validation для всех API ответов;
-- реализовал запуск коллекции через GitHub Actions;
-- добавил дополнительные UI сценарии и кроссбраузерное тестирование.
-
-```
-
-```
+- добавил Allure-отчёт поверх стандартного HTML-репорта Playwright;
+- добавил Dockerfile для изолированного запуска тестов;
+- добавил дополнительные UI сценарии и кроссбраузерное тестирование;
+- интегрировал cucumber-runner для исполнения Gherkin .feature файлов.

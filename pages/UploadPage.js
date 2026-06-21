@@ -1,3 +1,9 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export class UploadPage {
 
     constructor(page) {
@@ -11,8 +17,10 @@ export class UploadPage {
     }
 
     async uploadFile() {
+        const filePath = path.resolve(__dirname, '../fixtures/upload-file.txt');
+
         await this.page.locator('#file-upload')
-            .setInputFiles('fixtures/upload-file.txt');
+            .setInputFiles(filePath);
 
         await this.page.locator('#file-submit')
             .click();

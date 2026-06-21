@@ -6,7 +6,11 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report",
+    "test:newman": "newman run postman/collection.json -e postman/environment.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SurmenevStanislav/qa-middle-assignment.git"

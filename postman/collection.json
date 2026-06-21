@@ -325,7 +325,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"admin\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1447,6 +1447,39 @@
 					"name": "UpdateBooking",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure booking_id is set",
+									"// If empty, create a booking and store its id",
+									"if (!pm.environment.get(\"booking_id\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/booking\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({",
+									"                firstname: \"Jim\",",
+									"                lastname: \"Brown\",",
+									"                totalprice: 111,",
+									"                depositpaid: true,",
+									"                bookingdates: { checkin: \"2026-09-01\", checkout: \"2026-09-21\" },",
+									"                additionalneeds: \"Breakfast\"",
+									"            })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"booking_id\", res.json().bookingid);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
 								"exec": [
@@ -1592,8 +1625,107 @@
 					"response": []
 				},
 				{
+					"name": "UpdateBooking - Non-existing ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405 or 404\", function () {",
+									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"Response body is not empty\", function () {",
+									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
+									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/booking/99999999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"booking",
+								"99999999"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"John\",\r\n    \"lastname\" : \"Connor\",\r\n    \"totalprice\" : 222,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2022-01-01\",\r\n        \"checkout\" : \"2023-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Dinner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "PartialUpdateBooking",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure booking_id is set",
+									"// If empty, create a booking and store its id",
+									"if (!pm.environment.get(\"booking_id\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/booking\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({",
+									"                firstname: \"Jim\",",
+									"                lastname: \"Brown\",",
+									"                totalprice: 111,",
+									"                depositpaid: true,",
+									"                bookingdates: { checkin: \"2026-09-01\", checkout: \"2026-09-21\" },",
+									"                additionalneeds: \"Breakfast\"",
+									"            })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"booking_id\", res.json().bookingid);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
@@ -1740,6 +1872,72 @@
 					"response": []
 				},
 				{
+					"name": "PartialUpdateBooking - Non-existing ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405 or 404\", function () {",
+									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"Response body is not empty\", function () {",
+									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
+									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/booking/99999999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"booking",
+								"99999999"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Michael\",\r\n    \"lastname\" : \"Jackson\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "DeleteBooking  - Unauthorized",
 					"event": [
 						{
@@ -1783,8 +1981,92 @@
 					"response": []
 				},
 				{
+					"name": "DeleteBooking - Non-existing ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405 or 404\", function () {",
+									"    pm.expect([404, 405]).to.include(pm.response.code);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 2000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"});",
+									"",
+									"pm.test(\"Response body is not empty\", function () {",
+									"    pm.expect(pm.response.text()).to.be.a(\"string\");",
+									"    pm.expect(pm.response.text().length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/booking/99999999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"booking",
+								"99999999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "DeleteBooking",
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Pre-request: ensure booking_id is set",
+									"// If empty, create a booking and store its id",
+									"if (!pm.environment.get(\"booking_id\")) {",
+									"    pm.sendRequest({",
+									"        url: pm.environment.get(\"base_url\") + \"/booking\",",
+									"        method: \"POST\",",
+									"        header: { \"Content-Type\": \"application/json\" },",
+									"        body: {",
+									"            mode: \"raw\",",
+									"            raw: JSON.stringify({",
+									"                firstname: \"Jim\",",
+									"                lastname: \"Brown\",",
+									"                totalprice: 111,",
+									"                depositpaid: true,",
+									"                bookingdates: { checkin: \"2026-09-01\", checkout: \"2026-09-21\" },",
+									"                additionalneeds: \"Breakfast\"",
+									"            })",
+									"        }",
+									"    }, function (err, res) {",
+									"        if (!err && res && res.json) {",
+									"            pm.environment.set(\"booking_id\", res.json().bookingid);",
+									"        }",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
