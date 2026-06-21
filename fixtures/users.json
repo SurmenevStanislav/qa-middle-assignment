@@ -1,0 +1,23 @@
+[
+  {
+    "name": "valid user",
+    "username": "tomsmith",
+    "password": "SuperSecretPassword!",
+    "expectedMessage": "You logged into a secure area!",
+    "isPositive": true
+  },
+  {
+    "name": "invalid username",
+    "username": "wronguser",
+    "password": "SuperSecretPassword!",
+    "expectedMessage": "Your username is invalid!",
+    "isPositive": false
+  },
+  {
+    "name": "invalid password",
+    "username": "tomsmith",
+    "password": "wrongpassword",
+    "expectedMessage": "Your password is invalid!",
+    "isPositive": false
+  }
+]

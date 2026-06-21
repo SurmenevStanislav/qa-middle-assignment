@@ -1,0 +1,53 @@
+@startuml
+title Booking creation and cancellation sequence
+
+actor User
+participant Frontend
+participant API
+database Database
+participant "Payment Service" as Payment
+participant "Email Service" as Email
+
+User -> Frontend: Select room and dates
+Frontend -> API: Check availability
+API -> Database: Check room availability
+
+alt Room is available
+    Database --> API: Room is available
+    API --> Frontend: Room is available
+
+    User -> Frontend: Confirm booking
+    Frontend -> API: POST /booking
+    API -> Payment: Process payment
+
+    alt Payment successful
+        Payment --> API: Payment successful
+        API -> Database: Create booking
+        Database --> API: Booking created
+        API -> Email: Send booking confirmation
+        Email --> API: Confirmation sent
+        API --> Frontend: 201 Created
+        Frontend --> User: Show booking confirmation
+
+        User -> Frontend: Cancel booking
+        Frontend -> API: DELETE /booking/{id}
+        API -> Database: Cancel booking
+        Database --> API: Booking cancelled
+        API -> Email: Send cancellation email
+        Email --> API: Cancellation email sent
+        API --> Frontend: 200 OK
+        Frontend --> User: Show cancellation confirmation
+
+    else Payment failed
+        Payment --> API: Payment failed
+        API --> Frontend: 402 Payment Required
+        Frontend --> User: Show payment failed message
+    end
+
+else Room is not available
+    Database --> API: Room is not available
+    API --> Frontend: 409 Conflict
+    Frontend --> User: Show room unavailable message
+end
+
+@enduml

@@ -1,0 +1,25 @@
+{
+  "name": "test-for-work",
+  "version": "1.0.0",
+  "description": "Тестовое задание на позицию QA Engineer.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurmenevStanislav/qa-middle-assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SurmenevStanislav/qa-middle-assignment/issues"
+  },
+  "homepage": "https://github.com/SurmenevStanislav/qa-middle-assignment#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^26.0.0"
+  }
+}
